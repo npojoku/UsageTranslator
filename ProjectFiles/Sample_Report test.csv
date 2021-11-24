@@ -1,0 +1,12 @@
+PartnerID,partnerGuid,accountid,accountGuid,username,domains,itemname,plan,itemType,PartNumber,itemCount
+26678,2be65ea7-3cc4-4594-bf47-ab73ae51fe83,1588847,56a1d961-4c3c-456b-8808-7b7df1b7431a,ccdistribu18-13,ccdistribu18-13.serverdata.net,MSExchange_mailboxes,E2016_Exch_1_HOSTWAY,1,PLN002NR,10
+26392,2be65ea7-3cc4-4594-bf47-ab73ae51fe83,1588847,56a1d961-4c3c-456b-8808-7b7df1b7431a,ccdistribu18-13,ccdistribu18-13.serverdata.net,SpamStopper_advancedFilteringMailboxes,E2016_Exch_1_HOSTWAY,1,ADS000010U0R,10
+26678,2be65ea7-3cc4-4594-bf47-ab73ae51fe83,1588848,63f0c215-4d87-486c-8bfa-a981e84c9858,jacksoncou35-13,jacksoncou35-13.serverdata.net,EncryptedMailGateway_mailboxes,E2016_Exch_1_HOSTWAY,1,EMG000010U0R,5
+26678,2be65ea7-3cc4-4594-bf47-ab73ae51fe83,1588848,63f0c215-4d87-486c-8bfa-a981e84c9858,jacksoncou35-13,jacksoncou35-13.serverdata.net,MSExchange_mailboxes,E2016_Exch_1_HOSTWAY,1,PLN002NR,5
+26678,2be65ea7-3cc4-4594-bf47-ab73ae51fe83,1588848,63f0c215-4d87-486c-8bfa-a981e84c9858,jacksoncou35-13,jacksoncou35-13.serverdata.net,SpamStopper_advancedFilteringMailboxes,E2016_Exch_1_HOSTWAY,1,AES001NR,5
+26678,2be65ea7-3cc4-4594-bf47-ab73ae51fe83,1588849,16cd826c-2636-4eda-99af-8e704de33755,aerydenint24-98,aerydenint24-98.serverdata.net,Account_contacts,E2016_Exch_1_HOSTWAY,1,,1
+26678,2be65ea7-3cc4-4594-bf47-ab73ae51fe83,1588849,16cd826c-2636-4eda-99af-8e704de33755,aerydenint24-98,aerydenint24-98.serverdata.net,ActiveSync_mailboxes,E2016_Exch_1_HOSTWAY,1,,2
+26678,2be65ea7-3cc4-4594-bf47-ab73ae51fe83,1588849,16cd826c-2636-4eda-99af-8e704de33755,aerydenint24-98,aerydenint24-98.serverdata.net,Dns_foreignDomains,E2016_Exch_1_HOSTWAY,1,,2
+26678,2be65ea7-3cc4-4594-bf47-ab73ae51fe83,1588849,16cd826c-2636-4eda-99af-8e704de33755,aerydenint24-98,aerydenint24-98.serverdata.net,MSExchange_mailboxes,E2016_Exch_1_HOSTWAY,1,PMQ00005GB0R,5000
+26678,2be65ea7-3cc4-4594-bf47-ab73ae51fe83,1588849,16cd826c-2636-4eda-99af-8e704de33755,aerydenint24-98,aerydenint24-98.serverdata.net,SpamStopper_advancedFilteringMailboxes,E2016_Exch_1_HOSTWAY,1,AES001NR,2
+26678,2be65ea7-3cc4-4594-bf47-ab73ae51fe83,1588851,28d298c3-5e05-490f-bd47-fc0c82dd480a,smith79383-0740,smith79383-0740.serverdata.net,Dns_foreignDomains,E2016_Exch_1_HOSTWAY,1,MOL001NR,2
