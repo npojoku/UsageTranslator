@@ -27,8 +27,9 @@ public class Solution {
         String password = "";
 
         int batchSize = 50;
-        int countChargeable = 0;
-        int countDomains = 0;
+        //Keep track of number of records inserted into table
+        int[] countChargeable = new int[] {0};
+        int[] countDomains = new int[] {0};
 
         //Map to keep track of running total for each product
         HashMap<String,Integer> itemCountMap = new HashMap<>();
@@ -97,7 +98,7 @@ public class Solution {
      * @param count number of records inserted into table
      * @param batchSize size of the batch
      */
-    private static void insertChargeableTable(PreparedStatement statement, String[] data, JSONObject productObj, List<String> missingProductMapList, HashMap<String,Integer> itemCountMap, int idx, int count, int batchSize) {
+    private static void insertChargeableTable(PreparedStatement statement, String[] data, JSONObject productObj, List<String> missingProductMapList, HashMap<String,Integer> itemCountMap, int idx, int[] count, int batchSize) {
         //Define configurable list to be skipped
         HashSet<Integer> configurableList = new HashSet<>();
         configurableList.add(26392);
@@ -150,8 +151,8 @@ public class Solution {
                 statement.setInt(6, usage);
 
                 statement.addBatch();
-                count++;
-                if (count % batchSize == 0) {
+                count[0]++;
+                if (count[0] % batchSize == 0) {
                     statement.executeBatch();
                 }
             } catch (Exception exception) {
@@ -168,7 +169,7 @@ public class Solution {
      * @param count number of records inserted into table
      * @param batchSize size of the batch
      */
-    private static void insertDomainsTable(PreparedStatement statement, String[] data, HashSet<String> uniqueDomainsSet, int count, int batchSize) {
+    private static void insertDomainsTable(PreparedStatement statement, String[] data, HashSet<String> uniqueDomainsSet, int[] count, int batchSize) {
         String domain = data[5];
         int id = 0; // auto-increment id
         String planID = removeNonAlphanumeric(data[3]);
@@ -182,8 +183,8 @@ public class Solution {
                 statement.setString(2, planID);
                 statement.setString(3, domain);
                 statement.addBatch();
-                count++;
-                if (count % batchSize == 0) {
+                count[0]++;
+                if (count[0] % batchSize == 0) {
                     statement.executeBatch();
                 }
             } catch (Exception exception) {
