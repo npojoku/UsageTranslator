@@ -11,17 +11,18 @@ public class Solution {
         //define file paths
         String csvFilePath = "ProjectFiles\\Sample_Report.csv";
         String jsonFilePath = "ProjectFiles\\typemap.json";
+        String dbUrl = "jdbc:mysql://localhost:3306/UsageTranslator";
         //Insert data into DB
-        insertData(csvFilePath,jsonFilePath);
+        insertData(csvFilePath,jsonFilePath,dbUrl);
     }
 
     /**
      * This method is to set up DB connection and insert data into DB
      * @param csvFilePath File path for csv file to be read
      * @param jsonFilePath File path for json file to be read
+     * @param dbUrl URL of the database
      */
-    private static void insertData(String csvFilePath, String jsonFilePath) {
-        String jdbcUrl = "jdbc:mysql://localhost:3306/UsageTranslator";
+    private static void insertData(String csvFilePath, String jsonFilePath, String dbUrl) {
         String username = "root";
         String password = "";
 
@@ -34,7 +35,7 @@ public class Solution {
 
         Connection connection;
         try {
-            connection = DriverManager.getConnection(jdbcUrl,username,password);
+            connection = DriverManager.getConnection(dbUrl,username,password);
             connection.setAutoCommit(false);
 
             //SQL insert statement for chargeable table
