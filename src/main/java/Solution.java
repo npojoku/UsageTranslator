@@ -53,6 +53,17 @@ public class Solution {
             //list to output the missing part number in json file
             List<String> missingProductMapList = new ArrayList<>();
 
+            //Define configurable list to be skipped
+            HashSet<Integer> configurableList = new HashSet<>();
+            configurableList.add(26392);
+
+            //Define Unit Reduction Rule Map
+            HashMap<String,Integer> unitReductionRuleMap = new HashMap<>();
+            unitReductionRuleMap.put("EA000001GB0O",1000);
+            unitReductionRuleMap.put("PMQ00005GB0R",5000);
+            unitReductionRuleMap.put("SSX006NR",1000);
+            unitReductionRuleMap.put("SPQ00001MB0R",2000);
+
             String lineText;
             //read json file
             JSONParser jsonparser = new JSONParser();
@@ -66,7 +77,7 @@ public class Solution {
             while ((lineText = lineReader.readLine()) != null) {
                 String[] data = lineText.split(",");
                 //helper functions to insert data into corresponding tables
-                insertChargeableTable(statement_chargeable,data,productObj,missingProductMapList,itemCountMap,idx,countChargeable,batchSize);
+                insertChargeableTable(statement_chargeable,data,productObj,missingProductMapList,itemCountMap,idx,countChargeable,configurableList,unitReductionRuleMap,batchSize);
                 insertDomainsTable(statement_domains, data, uniqueDomainsSet, countDomains, batchSize);
                 idx++;
             }
@@ -96,20 +107,11 @@ public class Solution {
      * @param itemCountMap HashMap to store product with its corresponding running total
      * @param idx This is row number of each line in csv file
      * @param count number of records inserted into table
+     * @param configurableList list of configurable to be skipped
+     * @param unitReductionRuleMap stores unit reduction rule map
      * @param batchSize size of the batch
      */
-    private static void insertChargeableTable(PreparedStatement statement, String[] data, JSONObject productObj, List<String> missingProductMapList, HashMap<String,Integer> itemCountMap, int idx, int[] count, int batchSize) {
-        //Define configurable list to be skipped
-        HashSet<Integer> configurableList = new HashSet<>();
-        configurableList.add(26392);
-
-        //Define Unit Reduction Rule Map
-        HashMap<String,Integer> unitReductionRuleMap = new HashMap<>();
-        unitReductionRuleMap.put("EA000001GB0O",1000);
-        unitReductionRuleMap.put("PMQ00005GB0R",5000);
-        unitReductionRuleMap.put("SSX006NR",1000);
-        unitReductionRuleMap.put("SPQ00001MB0R",2000);
-
+    private static void insertChargeableTable(PreparedStatement statement, String[] data, JSONObject productObj, List<String> missingProductMapList, HashMap<String,Integer> itemCountMap, int idx, int[] count, HashSet<Integer> configurableList, HashMap<String,Integer> unitReductionRuleMap,int batchSize) {
         int id = 0; // auto-increment id
         int partnerId = Integer.parseInt(data[0]);
         String partNumber = data[9];
